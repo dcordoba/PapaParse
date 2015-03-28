@@ -1,6 +1,6 @@
 /*!
 	Papa Parse
-	v4.1.0
+	v4.2.0
 	https://github.com/mholt/PapaParse
 */
 (function(global)
@@ -394,12 +394,12 @@
 			this._partialLine = "";
 
 			var results = this._handle.parse(aggregate, this._baseIndex, !this._finished);
-			
+
 			if (this._handle.paused() || this._handle.aborted())
 				return;
-			
+
 			var lastIndex = results.meta.cursor;
-			
+
 			if (!this._finished)
 			{
 				this._partialLine = aggregate.substring(lastIndex - this._baseIndex);
@@ -509,7 +509,7 @@
 			}
 
 			xhr = new XMLHttpRequest();
-			
+
 			if (!IS_WORKER)
 			{
 				xhr.onload = bindFunction(this._chunkLoaded, this);
@@ -517,7 +517,7 @@
 			}
 
 			xhr.open("GET", this._input, !IS_WORKER);
-			
+
 			if (this._config.chunkSize)
 			{
 				var end = this._start + this._config.chunkSize - 1;	// minus one because byte range is inclusive
@@ -1111,7 +1111,7 @@
 								if (aborted)
 									return returnable();
 							}
-							
+
 							if (preview && data.length >= preview)
 								return returnable(true);
 
